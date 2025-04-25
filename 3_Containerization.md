@@ -89,9 +89,10 @@ mosquitto
 
 ---
 
-### Step 2: Build the image
+### Step 2: Build the container image
 
-Use the following command to build your container image:
+A **manifest** groups multiple platform-specific container images under one tag, allowing cross-architecture support (e.g., `amd64`, `arm64`).
+Use the following command to build your manifest:
 
 ```
 podman build --jobs 2 --platform linux/amd64,linux/arm64 --manifest mosquitto-custom:1.0 --layers=false /path/to/Containerfile
