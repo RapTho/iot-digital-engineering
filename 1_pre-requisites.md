@@ -85,7 +85,40 @@ Download and install from: [https://www.python.org/downloads/windows/](https://w
 
 ---
 
-## 6. Code Editor (VS Code or any other)
+## 6. Installing `mosquitto_passwd`
+
+The `mosquitto_passwd` utility is used to generate password files for authenticating MQTT clients.
+
+### macOS
+
+Install via Homebrew:
+
+```
+brew install mosquitto
+```
+
+This will install both the Mosquitto broker and the `mosquitto_passwd` tool. You can verify the installation with:
+
+```
+mosquitto_passwd -h
+```
+
+### Windows
+
+1. Download the Mosquitto installer from the official site:  
+   [https://mosquitto.org/download/](https://mosquitto.org/download/)
+
+2. During installation, make sure to check the option to install the **utilities**.
+
+3. After installation, add the Mosquitto `bin` directory to your system `PATH` (if not done automatically).
+
+You can now use `mosquitto_passwd` from the Command Prompt:
+
+```
+mosquitto_passwd -h
+```
+
+## 7. Code Editor (VS Code or any other)
 
 We recommend using [Visual Studio Code](https://code.visualstudio.com/) for this course.
 
