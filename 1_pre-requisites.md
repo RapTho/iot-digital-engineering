@@ -56,6 +56,9 @@ After installation, verify with:
 ibmcloud version
 ```
 
+Optionally, you can also enable the autocompletion:<br />
+[https://cloud.ibm.com/docs/cli?topic=cli-shell-autocomplete](https://cloud.ibm.com/docs/cli?topic=cli-shell-autocomplete)
+
 ---
 
 ## 4. Bruno (API Test Client)
