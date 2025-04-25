@@ -1,6 +1,6 @@
 # Building a container image
 
-In this section, we’ll walk through how to create a custom container image for a local Mosquitto broker using Podman. This includes setting up authentication and access control via `passwords.txt`, `acl.txt`, and `mosquitto.conf`, and building a cross-platform container image. wherever you see `podman` instructions, you can also use `docker` instead.
+In this section, we’ll walk through how to create a custom container image for a local Mosquitto broker using Podman. This includes setting up authentication and access control via `passwords.txt`, `acl.txt`, and `mosquitto.conf`, and building a cross-platform container image. Wherever you see `podman` instructions, you can also use `docker` instead.
 
 ---
 
@@ -17,7 +17,7 @@ Each instruction is executed in sequence, and the result is a lightweight, porta
 
 ---
 
-## 🔨 Build the Mosquitto Container Image
+## 🔨 Build the Mosquitto container image
 
 First, prepare your folder structure. It should look like this:
 
@@ -29,11 +29,11 @@ mosquitto
 ├── mosquitto.conf
 ```
 
-## 🧾 Containerfile Explained
+## 🧾 Containerfile explained
 
 Check out the [Containerfile](./files/Containerfile):
 
-### Key Instructions
+### Key instructions
 
 - `FROM eclipse-mosquitto:latest`: Uses the official Mosquitto base image.
 - `WORKDIR`: Sets the working directory inside the container.
@@ -44,7 +44,7 @@ Check out the [Containerfile](./files/Containerfile):
 
 The [mosquitto.conf](./files/mosquitto.conf) configures how the broker works
 
-### Step 1: Configure Access and Credentials
+### Step 1: Configure access and credentials
 
 - Edit `acl.txt` to define topic access controls.
 - Use `generatePasswordFile.py` to generate a `passwords.txt` file for authentication.
@@ -70,12 +70,12 @@ mosquitto
 
 ---
 
-### Step 2: Build the Image
+### Step 2: Build the image
 
 Use the following command to build your container image:
 
 ```
-podman build --jobs 2 --platform linux/amd64,linux/arm64 --manifest ${IMAGE_NAME}:${IMAGE_TAG} --layers=false /path/to/Containerfile
+podman build --jobs 2 --platform linux/amd64,linux/arm64 --manifest mosquitto-custom:1.0 --layers=false /path/to/Containerfile
 ```
 
 - `--platform linux/amd64,linux/arm64` ensures the image runs on both standard x86 and ARM-based systems.
@@ -85,7 +85,7 @@ Replace `/path/to/Containerfile` with the actual path to your `mosquitto` folder
 
 ---
 
-### OPTIONAL: Test Locally
+### OPTIONAL: Test locally
 
 To test your image locally, run:
 
@@ -93,7 +93,7 @@ To test your image locally, run:
 podman run -d -v ./:/home/mosquitto/passwords:ro \
               -v ./:/home/mosquitto/acl:ro \
               -v ./:/home/mosquitto/config:ro \
-              -p 1883:1883 --name mosquitto ${IMAGE_NAME}:${IMAGE_TAG}
+              -p 1883:1883 --name mosquitto mosquitto-custom:1.0
 ```
 
 - This command mounts the local directory into the container so it can read `passwords.txt`, `acl.txt`, and `mosquitto.conf`.
