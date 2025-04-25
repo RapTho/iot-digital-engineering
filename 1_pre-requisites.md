@@ -1,4 +1,4 @@
-# Prerequisites Installation Guide
+# Prerequisites
 
 Before starting the course, please ensure you have the following tools installed on your machine. This guide provides installation instructions for **both macOS and Windows** platforms.
 
