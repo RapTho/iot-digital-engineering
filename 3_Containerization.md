@@ -31,7 +31,7 @@ mosquitto
 
 ## 🧾 Containerfile explained
 
-Check out the [Containerfile](https://github.com/RapTho/iot-digital-engineering/blob/main/files/Containerfile):
+Check out the [Containerfile](./files/):
 
 ### Key instructions
 
