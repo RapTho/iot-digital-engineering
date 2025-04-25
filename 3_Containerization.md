@@ -119,6 +119,22 @@ podman run -d -v ./:/home/mosquitto/passwords:ro \
 - This command mounts the local directory into the container so it can read `passwords.txt`, `acl.txt`, and `mosquitto.conf`.
 - The `-p 1883:1883` flag makes the MQTT broker accessible on your local port 1883.
 
+### Running on Windows (PowerShell)
+
+Use backticks (\`) for line continuation and double quotes for paths:
+
+```powershell
+podman run -d `
+  -v "${PWD}:/home/mosquitto/passwords:ro" `
+  -v "${PWD}:/home/mosquitto/acl:ro" `
+  -v "${PWD}:/home/mosquitto/config:ro" `
+  -p 1883:1883 `
+  --name mosquitto `
+  mosquitto-custom:1.0
+```
+
+> `${PWD}` is PowerShell's way to get the current directory path.
+
 ---
 
 With this setup, you’ll have a fully functional, portable Mosquitto broker container, secured and ready for use in development environments.
