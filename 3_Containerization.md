@@ -4,7 +4,7 @@ In this section, we’ll walk through how to create a custom container image for
 
 ---
 
-## 📦 What is a Containerfile?
+## What is a Containerfile?
 
 A `Containerfile` (also known as a `Dockerfile` in Docker contexts) is a script that contains a list of instructions used to build a container image. It defines:
 
@@ -17,7 +17,7 @@ Each instruction is executed in sequence, and the result is a lightweight, porta
 
 ---
 
-## 🔨 Build the Mosquitto container image
+## Build the Mosquitto container image
 
 First, prepare your folder structure. It should look like this:
 
@@ -29,9 +29,28 @@ mosquitto
 ├── mosquitto.conf
 ```
 
-## 🧾 Containerfile explained
+## Containerfile explained
 
-Check out the [Containerfile](./files/):
+Check out the `Containerfile`
+
+```Dockerfile
+FROM eclipse-mosquitto:latest
+
+ARG WORKDIR=/home/mosquitto
+
+WORKDIR $WORKDIR
+
+RUN mkdir ${WORKDIR}/config ${WORKDIR}/acl ${WORKDIR}/passwords
+
+RUN chown -R mosquitto:mosquitto ${WORKDIR}
+
+USER mosquitto
+
+EXPOSE 1883
+EXPOSE 8000
+
+CMD ["/usr/sbin/mosquitto", "-c", "/home/mosquitto/config/mosquitto.conf"]
+```
 
 ### Key instructions
 
@@ -39,7 +58,7 @@ Check out the [Containerfile](./files/):
 - `WORKDIR`: Sets the working directory inside the container.
 - `RUN mkdir ...`: Creates folders to organize your configs, ACLs, and passwords.
 - `USER mosquitto`: Ensures the broker runs as a non-root user.
-- `EXPOSE`: Declares which ports are used (1883 for MQTT, 9001 for WebSocket).
+- `EXPOSE`: Declares which ports are used (1883 for MQTT, 8000 for WebSocket).
 - `CMD`: Specifies the command that runs when the container starts, pointing to your custom configuration file.
 
 The [mosquitto.conf](./files/mosquitto.conf) configures how the broker works
