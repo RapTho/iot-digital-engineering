@@ -8,7 +8,7 @@ Before starting the course, please ensure you have the following tools installed
 
 You only need **one** of these container runtimes.
 
-### 🔧 Podman
+### Podman
 
 #### macOS
 
@@ -22,7 +22,7 @@ podman machine start
 
 Download and install from the official site: [https://podman.io/getting-started/installation](https://podman.io/getting-started/installation)
 
-### 🐳 Docker
+### Docker
 
 #### macOS & Windows
 
@@ -63,7 +63,7 @@ ibmcloud version
 Bruno is a lightweight API client, ideal for working with REST APIs.
 
 Download the latest release for your OS :  
-👉 [https://www.usebruno.com/downloads](https://www.usebruno.com/downloads)
+[https://www.usebruno.com/downloads](https://www.usebruno.com/downloads)
 
 Install the version appropriate for your system.
 
@@ -97,7 +97,7 @@ Download from: [https://code.visualstudio.com/Download](https://code.visualstudi
 
 ---
 
-## ✅ Verification Checklist
+## Verification Checklist
 
 After installation, you should be able to run the following commands in your terminal or command prompt:
 
