@@ -51,11 +51,12 @@ Here is an example of how you can use the paho-mqtt library to connect to the Mo
 import ssl
 import paho.mqtt.client as mqtt
 
+topic = "topic1"
 client = mqtt.Client(transport="websockets") # or mqtt.CallbackAPIVersion.VERSION2
 client.tls_set(None, cert_reqs=ssl.CERT_NONE) # if you want to ignore TLS
 client.username_pw_set("myBrokerUsername", "myBrokerPassword")
 client.connect("mosquitto-broker-url", 8083)
-client.subscribe("student1/topic", qos=1) # qos=1 is at least once
+client.subscribe(topic, qos=1) # qos=1 is at least once
 ```
 
 Validating a message

@@ -42,11 +42,12 @@ Here is an example of how you can use the paho-mqtt library to connect to the Mo
 import ssl
 import paho.mqtt.client as mqtt
 
+topic = "topic1"
 client = mqtt.Client(transport="websockets") # or mqtt.CallbackAPIVersion.VERSION2
 client.tls_set(None, cert_reqs=ssl.CERT_NONE) # if you want to ignore TLS
 client.username_pw_set("myBrokerUsername", "myBrokerPassword")
 client.connect("mosquitto-broker-url", 8083)
-client.subscribe("student1/topic", qos=1) # qos=1 is at least once
+client.subscribe(topic, qos=1) # qos=1 is at least once
 ```
 
 Validating a message
@@ -72,12 +73,13 @@ publish a message
 ```python
 from datetime import datetime
 
-result = client.publish("topic1", payload=json.dumps(message), qos=1)
+topic = "topic1"
+result = client.publish(topic, payload=json.dumps(message), qos=1)
 result_code = result.rc
 if result_code != mqtt.MQTT_ERR_SUCCESS:
-    raise Exception(f"[{datetime.now()}] Failed to publish message '{message}' to topic '{Config.TOPIC}'. Result code: {result_code}")
+    raise Exception(f"[{datetime.now()}] Failed to publish message '{message}' to topic ${topic}. Result code: {result_code}")
 else:
-    print(f"[{datetime.now()}] Message '{message}' sent to topic topic1 successfully.")
+    print(f"[{datetime.now()}] Message '{message}' sent to topic ${topic} successfully.")
 ```
 
 ## Environment variables
