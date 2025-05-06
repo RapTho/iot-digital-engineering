@@ -113,7 +113,7 @@ To test your image locally, run:
 podman run -d -v ./:/home/mosquitto/passwords:ro \
               -v ./:/home/mosquitto/acl:ro \
               -v ./:/home/mosquitto/config:ro \
-              -p 1883:1883 --name mosquitto mosquitto-custom:1.0
+              -p 1883:1883 -p 8083:8083 --name mosquitto mosquitto-custom:1.0
 ```
 
 - This command mounts the local directory into the container so it can read `passwords.txt`, `acl.txt`, and `mosquitto.conf`.
@@ -129,6 +129,7 @@ podman run -d `
   -v "${PWD}:/home/mosquitto/acl:ro" `
   -v "${PWD}:/home/mosquitto/config:ro" `
   -p 1883:1883 `
+  -p 8083:8083 `
   --name mosquitto `
   mosquitto-custom:1.0
 ```
