@@ -2,11 +2,11 @@
 
 ## Introduction
 
-This is a Python publisher app that connects to a Mosquitto broker and publishes messages to a specific topic. The app uses the paho-mqtt library to communicate with the Mosquitto broker.
+This is a Python publisher app that connects to a mosquitto broker and publishes messages to a specific topic. The app uses the paho-mqtt library to communicate with the mosquitto broker.
 
 ## Prerequisites
 
-- Mosquitto broker deployed on IBM Code Engine (previous task)
+- mosquitto broker deployed on IBM Code Engine (previous task)
 - Python 3.8 or later
 - `paho-mqtt` library for MQTT communication
 - `jsonschema` library for validating JSON messages
@@ -16,27 +16,27 @@ This is a Python publisher app that connects to a Mosquitto broker and publishes
 
 Your task is to develop a Python publisher app that:
 
-- Connects to the Mosquitto broker on port 8083 (WebSocket)
+- Connects to the mosquitto broker on port 8083 (WebSocket)
 - Validates the JSON messages using a schema
 - Publishes messages to a specific topic (e.g., student1/topic)
 
 ## Hints
 
-- Use the paho-mqtt library to connect to the Mosquitto broker and publish messages to a topic.
+- Use the paho-mqtt library to connect to the mosquitto broker and publish messages to a topic.
 - Use the jsonschema library to validate the JSON messages using a schema.
 - Use the python-dotenv library to load environment variables from a .env file.
-- Use a try-except block to handle errors when connecting to the Mosquitto broker or publishing messages.
+- Use a try-except block to handle errors when connecting to the mosquitto broker or publishing messages.
 
 ## Schema validation
 
-The schema validation is used to ensure that the JSON messages published to the Mosquitto broker conform to a specific format. You can use the `jsonschema` library to validate the JSON messages.
+The schema validation is used to ensure that the JSON messages published to the mosquitto broker conform to a specific format. You can use the `jsonschema` library to validate the JSON messages.
 
 Define a schema using the jsonschema library.
 Use the validate function to validate the JSON messages against the schema.
 
 ## Example Code
 
-Here is an example of how you can use the paho-mqtt library to connect to the Mosquitto broker and subscribe to a topic. More documentation is available [here](https://eclipse.dev/paho/files/paho.mqtt.python/html/client.html)
+Here is an example of how you can use the paho-mqtt library to connect to the mosquitto broker and subscribe to a topic. More documentation is available [here](https://eclipse.dev/paho/files/paho.mqtt.python/html/client.html)
 
 ```python
 import ssl

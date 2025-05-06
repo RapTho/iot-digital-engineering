@@ -1,6 +1,6 @@
 # Building a container image
 
-In this section, we’ll walk through how to create a custom container image for a local Mosquitto broker using Podman. This includes setting up authentication and access control via `passwords.txt`, `acl.txt`, and `mosquitto.conf`, and building a cross-platform container image. Wherever you see `podman` instructions, you can also use `docker` instead.
+In this section, we’ll walk through how to create a custom container image for a local mosquitto broker using Podman. This includes setting up authentication and access control via `passwords.txt`, `acl.txt`, and `mosquitto.conf`, and building a cross-platform container image. Wherever you see `podman` instructions, you can also use `docker` instead.
 
 ---
 
@@ -17,7 +17,7 @@ Each instruction is executed in sequence, and the result is a lightweight, porta
 
 ---
 
-## Build the Mosquitto container image
+## Build the mosquitto container image
 
 First, prepare your folder structure. It should look like this:
 
@@ -54,7 +54,7 @@ CMD ["/usr/sbin/mosquitto", "-c", "/home/mosquitto/config/mosquitto.conf"]
 
 ### Key instructions
 
-- `FROM eclipse-mosquitto:latest`: Uses the official Mosquitto base image.
+- `FROM eclipse-mosquitto:latest`: Uses the official mosquitto base image.
 - `WORKDIR`: Sets the working directory inside the container.
 - `RUN mkdir ...`: Creates folders to organize your configs, ACLs, and passwords.
 - `USER mosquitto`: Ensures the broker runs as a non-root user.
@@ -138,4 +138,4 @@ podman run -d `
 
 ---
 
-With this setup, you’ll have a fully functional, portable Mosquitto broker container, secured and ready for use in development environments.
+With this setup, you’ll have a fully functional, portable mosquitto broker container, secured and ready for use in development environments.

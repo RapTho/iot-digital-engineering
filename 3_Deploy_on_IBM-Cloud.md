@@ -1,4 +1,4 @@
-# Deploying Mosquitto on IBM Cloud
+# Deploying mosquitto on IBM Cloud
 
 In this guide, you'll learn how to:
 
@@ -11,7 +11,7 @@ This workflow is ideal for hosting custom services like a secured MQTT broker, b
 
 ## Prerequisites
 
-- Mosquitto image built locally
+- mosquitto image built locally
 - IBM Cloud CLI installed
 - Logged in with `ibmcloud login --sso`
 
@@ -189,7 +189,7 @@ ibmcloud ce app create --name mosquitto-$env:USERNAME `
 
 > Replace `$env:USERNAME` with your actual username if not set as an environment variable.
 
-This will start your Mosquitto MQTT broker on IBM Code Engine with your custom configuration, ACLs, and password protection.
+This will start your mosquitto MQTT broker on IBM Code Engine with your custom configuration, ACLs, and password protection.
 
 ## Troubleshooting
 

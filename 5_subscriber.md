@@ -2,11 +2,11 @@
 
 ## Introduction
 
-This is a Python subscriber app that connects to a Mosquitto broker and subscribes to a specific topic. The app receives messages from the broker and stores them in a Cloudant database.
+This is a Python subscriber app that connects to a mosquitto broker and subscribes to a specific topic. The app receives messages from the broker and stores them in a Cloudant database.
 
 ## Prerequisites
 
-- Mosquitto broker deployed on IBM Code Engine (previous task)
+- mosquitto broker deployed on IBM Code Engine (previous task)
 - Python 3.8 or later
 - `paho-mqtt` library for MQTT communication
 - `requests` library for HTTP requests
@@ -16,17 +16,17 @@ This is a Python subscriber app that connects to a Mosquitto broker and subscrib
 
 Your task is to develop a Python subscriber app that:
 
-- Subscribes to a topic on the previously deployed Mosquitto broker on port 8083 (WebSocket)
+- Subscribes to a topic on the previously deployed mosquitto broker on port 8083 (WebSocket)
 - Receives messages from the broker and stores them in a Cloudant database
 - Enforce a message schema
 
 ## Hints
 
-- Use the paho-mqtt library to connect to the Mosquitto broker and subscribe to a topic.
+- Use the paho-mqtt library to connect to the mosquitto broker and subscribe to a topic.
 - Use the requests library to send HTTP requests to the Cloudant database API.
 - Use basic authentication to authenticate with the Cloudant database.
 - Load environment variables from a .env file using the python-dotenv library.
-- Use a try-except block to handle errors when connecting to the Mosquitto broker or publishing messages.
+- Use a try-except block to handle errors when connecting to the mosquitto broker or publishing messages.
 
 ## Cloudant Database API
 
@@ -45,7 +45,7 @@ Libraries like `requests` have ways of doing the base64 encoding for you.
 
 ## Example Code
 
-Here is an example of how you can use the paho-mqtt library to connect to the Mosquitto broker and subscribe to a topic. More documentation is available [here](https://eclipse.dev/paho/files/paho.mqtt.python/html/client.html)
+Here is an example of how you can use the paho-mqtt library to connect to the mosquitto broker and subscribe to a topic. More documentation is available [here](https://eclipse.dev/paho/files/paho.mqtt.python/html/client.html)
 
 ```python
 import ssl
