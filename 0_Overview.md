@@ -15,10 +15,29 @@ This course will enable you to:
 <!-- ![sequence-diagram](./files/sequence-diagram_dark.svg) -->
 
 <!-- <img src="./files/sequence-diagram_dark.svg" alt="Diagram" class="theme-image"> -->
-<picture>
-    <img src="./files/sequence-diagram_dark.svg" alt="Diagram">
+
+<style>
+  .light-theme {
+    display: none;
+  }
+  @media (prefers-color-scheme: dark) {
+    .light-theme {
+      display: block;
+    }
+    .dark-theme {
+      display: none;
+    }
+  }
+</style>
+
+<picture class="light-theme">
+  <img src="./files/sequence-diagram_light.svg" alt="Diagram for Light Theme">
 </picture>
-   
+
+<picture class="dark-theme">
+  <img src="./files/sequence-diagram_dark.svg" alt="Diagram for Dark Theme">
+</picture>
+
 <!-- <picture>
     <source srcset="./files/sequence-diagram_light.svg" media="(prefers-color-scheme: dark)">
     <source srcset="./files/sequence-diagram_dark.svg" media="(prefers-color-scheme: light)">
