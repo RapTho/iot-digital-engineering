@@ -61,7 +61,7 @@ Optionally, you can also enable the autocompletion:<br />
 
 ---
 
-## 4. OPTIONAL: Bruno (API Test Client)
+## 4. OPTIONAL: Bruno (API test client)
 
 Bruno is a lightweight API client, ideal for working with REST APIs.
 
@@ -72,7 +72,7 @@ Install the version appropriate for your system.
 
 ---
 
-## 5. Python (Version 3.8 or higher)
+## 5. Python (version 3.8 or higher)
 
 ### macOS
 
@@ -121,7 +121,7 @@ You can now use `mosquitto_passwd` from the Command Prompt:
 mosquitto_passwd -h
 ```
 
-## 7. Code Editor (VS Code or any other)
+## 7. Code editor (VS Code or any other)
 
 We recommend using [Visual Studio Code](https://code.visualstudio.com/) for this course.
 
@@ -133,7 +133,7 @@ Download from: [https://code.visualstudio.com/Download](https://code.visualstudi
 
 ---
 
-## Verification Checklist
+## Verification checklist
 
 After installation, you should be able to run the following commands in your terminal or command prompt:
 
@@ -143,7 +143,5 @@ kubectl version --client
 ibmcloud version
 python --version
 ```
-
-Make sure Bruno is installed and working, and that you can open your code editor.
 
 Once everything is installed and working, you're ready to begin!
