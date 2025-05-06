@@ -191,4 +191,34 @@ ibmcloud ce app create --name mosquitto-$env:USERNAME `
 
 This will start your Mosquitto MQTT broker on IBM Code Engine with your custom configuration, ACLs, and password protection.
 
----
+## Troubleshooting
+
+### Connect to IBM Code Engine's Kubernetes-API
+
+To use `kubectl` with IBM Code Engine, you can set the context as documented [here](https://cloud.ibm.com/docs/codeengine?topic=codeengine-kubernetes)
+
+```bash
+ibmcloud ce project select -n iot-digital-engineering --kubecfg
+```
+
+Now you can do everything you're authorized to :)
+
+### Get Pods
+
+```bash
+kubectl get pods
+```
+
+### Check logs of a specific pod
+
+Replace `myPodName` with the name of your pod. You can also use the `-f` option to subscribe to incoming logs
+
+```bash
+kubectl logs pod/myPodName
+```
+
+If a pod contains more than one container, as it is the case when deploying apps on IBM Code Engine, you can select the container you're interested in using the `-c` option. By default IBM Code Engine calls the user's container `user-container`
+
+```bash
+kubectl logs -f pod/myPodName -c user-container
+```
