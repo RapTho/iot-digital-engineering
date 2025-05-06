@@ -61,7 +61,7 @@ Optionally, you can also enable the autocompletion:<br />
 
 ---
 
-## 4. Bruno (API Test Client)
+## 4. OPTIONAL: Bruno (API Test Client)
 
 Bruno is a lightweight API client, ideal for working with REST APIs.
 
