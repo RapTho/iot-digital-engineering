@@ -2,8 +2,6 @@
 
 In this section, we’ll walk through how to create a custom container image for a local mosquitto broker using Podman. This includes setting up authentication and access control via `passwords.txt`, `acl.txt`, and `mosquitto.conf`, and building a cross-platform container image. Wherever you see `podman` instructions, you can also use `docker` instead.
 
----
-
 ## What is a Containerfile?
 
 A `Containerfile` (also known as a `Dockerfile` in Docker contexts) is a script that contains a list of instructions used to build a container image. It defines:
@@ -14,8 +12,6 @@ A `Containerfile` (also known as a `Dockerfile` in Docker contexts) is a script 
 - The **entrypoint or command** to run when the container starts.
 
 Each instruction is executed in sequence, and the result is a lightweight, portable, and reproducible image.
-
----
 
 ## Build the mosquitto container image
 
@@ -87,8 +83,6 @@ mosquitto
 ├── passwords.txt
 ```
 
----
-
 ### Step 2: Build the container image
 
 A **manifest** groups multiple platform-specific container images under one tag, allowing cross-architecture support (e.g., `amd64`, `arm64`).
@@ -102,8 +96,6 @@ podman build --jobs 2 --platform linux/amd64,linux/arm64 --manifest mosquitto-cu
 - This is important because **newer MacBooks use Apple Silicon (ARM64)** and may not be compatible with images built only for AMD64.
 
 Replace `/path/to/Containerfile` with the actual path to your `mosquitto` folder.
-
----
 
 ### OPTIONAL: Test locally
 
@@ -135,7 +127,5 @@ podman run -d `
 ```
 
 > `${PWD}` is PowerShell's way to get the current directory path.
-
----
 
 With this setup, you’ll have a fully functional, portable mosquitto broker container, secured and ready for use in development environments.
