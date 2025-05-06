@@ -1,4 +1,4 @@
-# API Test Client
+# OPTIONAL: API Test Client
 
 ![Bruno Homepage](https://www.usebruno.com/_next/image?url=%2Fbruno_app%2Fbruno-homepage.png&w=1080&q=75)
 
