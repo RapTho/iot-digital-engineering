@@ -12,8 +12,15 @@ This course will enable you to:
 
 ## Sequence Diagram
 
+<!-- ![sequence-diagram](./files/sequence-diagram_dark.svg) -->
+
+<!-- <img src="./files/sequence-diagram_dark.svg" alt="Diagram" class="theme-image"> -->
 <picture>
+    <img src="./files/sequence-diagram_dark.svg" alt="Diagram">
+</picture>
+   
+<!-- <picture>
     <source srcset="./files/sequence-diagram_light.svg" media="(prefers-color-scheme: dark)">
     <source srcset="./files/sequence-diagram_dark.svg" media="(prefers-color-scheme: light)">
     <img src="./files/sequence-diagram_light.svg" alt="Diagram">
-</picture>
+</picture> -->
