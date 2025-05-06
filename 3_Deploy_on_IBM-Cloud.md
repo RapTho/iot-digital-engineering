@@ -7,15 +7,11 @@ In this guide, you'll learn how to:
 
 This workflow is ideal for hosting custom services like a secured MQTT broker, built and maintained locally but deployed in the cloud.
 
----
-
 ## Prerequisites
 
 - mosquitto image built locally
 - IBM Cloud CLI installed
 - Logged in with `ibmcloud login --sso`
-
----
 
 ## Install required plugins
 
@@ -24,8 +20,6 @@ Install the Code Engine and Container Registry plugins:
 ```
 ibmcloud plugin install code-engine container-registry
 ```
-
----
 
 ## Set environment variables
 
@@ -54,8 +48,6 @@ You can access them the same way in subsequent commands (e.g., `$env:IMAGE_NAME`
 
 > Note: These variables are only available in the current PowerShell session.
 
----
-
 ## Select IBM Cloud context
 
 Select the correct resource group:
@@ -75,8 +67,6 @@ ibmcloud ce project select --name myProjectName
 ```
 ibmcloud ce project create --name myProjectName
 ```
-
----
 
 ## Publish image to IBM Container Registry
 
@@ -106,8 +96,6 @@ podman manifest push --all de.icr.io/${CR_NAMESPACE}/${IMAGE_NAME}:${IMAGE_TAG}
 ibmcloud cr retention-policy-set --images 2 ${CR_NAMESPACE}
 ```
 
----
-
 ## Create API key and registry access for Code Engine
 
 Create an IBM Cloud API key:
@@ -130,14 +118,10 @@ Create a registry access secret for Code Engine:
 ibmcloud ce registry create --name ibm-container-registry-${USER} --server de.icr.io --username iamapikey --password ${API_KEY}
 ```
 
----
-
 ## Authenticate `kubectl` for Code Engine
 
 Follow IBM's guide to enable Kubernetes CLI access to Code Engine: <br />
 [https://cloud.ibm.com/docs/codeengine?topic=codeengine-kubernetes](https://cloud.ibm.com/docs/codeengine?topic=codeengine-kubernetes)
-
----
 
 ## Upload mosquitto configuration files
 
@@ -148,8 +132,6 @@ ibmcloud ce configmap create --name conf-${USER} --from-file mosquitto.conf=mosq
 ibmcloud ce configmap create --name acl-${USER} --from-file acl.txt=mosquitto/acl.txt
 ibmcloud ce secret create --name passwords-${USER} --from-file passwords.txt=mosquitto/passwords.txt
 ```
-
----
 
 ## Deploy mosquitto to Code Engine
 

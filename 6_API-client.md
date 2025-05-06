@@ -6,16 +6,12 @@
 
 > If you haven’t installed Bruno yet, refer to the [installation guide](./1_pre-requisites.md#4-bruno-api-test-client).
 
----
-
 ## Why Bruno?
 
 - Local-first, Git-friendly API collections.
 - Open-source and privacy-focused.
 - Fast, responsive, and simple to use.
 - Ideal for REST API testing.
-
----
 
 ## Getting Started with Bruno
 
@@ -27,8 +23,6 @@
    - Method: `GET`
    - URL: `https://<your-cloudant-hostname>.cloudantnosqldb.appdomain.cloud/<your-database-name>`
 4. Click **Send** and inspect the response in the lower panel.
-
----
 
 ### 2. Setting Collection Variables
 
@@ -63,8 +57,6 @@ Follow these steps to retrieve the **read-only** service credentials from IBM Cl
 
    These variables can now be used throughout your requests to securely and consistently reference your Cloudant setup.
 
----
-
 ### 3. Using Variables in Requests
 
 In your request URL or headers, use double curly braces:
@@ -74,8 +66,6 @@ In your request URL or headers, use double curly braces:
 ```
 
 Bruno will automatically substitute the values when sending the request.
-
----
 
 ### 4. Setting Authentication on the Collection
 
@@ -88,13 +78,9 @@ To apply authentication across all requests in a collection:
    - Password: your service credentials password
 4. Save changes.
 
----
-
 ### 5. Inheriting Auth in Requests
 
 When you set auth at the collection level, individual requests will automatically **inherit** those settings unless you override them. This keeps your requests clean and consistent.
-
----
 
 ## Example request
 
