@@ -12,7 +12,7 @@ This course will enable you to:
 
 ## Sequence Diagram
 
-<!-- <style>
+<style>
   .light-theme {
     display: none;
   }
@@ -32,22 +32,7 @@ This course will enable you to:
 
 <picture class="dark-theme">
   <img src="./files/sequence-diagram_dark.svg" alt="Diagram for Dark Theme">
-</picture> -->
-
-<picture>
-  <img id="theme-image" src="./files/sequence-diagram_light.svg" alt="Diagram">
 </picture>
-<script>
-  const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  const imageElement = document.getElementById("theme-image");
-
-    if (prefersDarkScheme) {
-    imageElement.src = "./files/sequence-diagram_dark.svg";
-    } else {
-    imageElement.src = "./files/sequence-diagram_light.svg";
-    }
-
-</script>
 
 <!-- <picture>
     <source srcset="./files/sequence-diagram_light.svg" media="(prefers-color-scheme: dark)">
