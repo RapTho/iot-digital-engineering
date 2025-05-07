@@ -112,7 +112,7 @@ CLOUDANT_ACCOUNT = os.getenv("CLOUDANT_ACCOUNT")
 CLOUDANT_DATABASE = os.getenv("CLOUDANT_DATABASE")
 ```
 
-## Deployment on IBM Code Engine
+## Deployment on IBM Code Engine
 
 The container image building and publishing process will be similar to what was documented in the [mosquitto example](./3_Deploy_on_IBM-Cloud.md). The deployment of the container on IBM Code Engine will be slightly different though.
 
