@@ -42,7 +42,9 @@ The following API endpoints will be used:
 
 ### Example find
 
-![cloudant_find](./files/cloudant_find.png)
+![cloudant_find](./files/cloudant_find.png) <br />
+
+> You can ignore the warning `no matching index found`. Cloudant indices are data structures that improve query performance by allowing the database to quickly locate specific documents. Creating an index on a field enables Cloudant to efficiently retrieve documents that match a query, reducing resource usage and improving scalability. For now, we will skip creating an index.
 
 ## Python Implementation
 
