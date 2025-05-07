@@ -9,7 +9,7 @@ This workflow is ideal for hosting custom services like a secured MQTT broker, b
 
 ## Prerequisites
 
-- mosquitto image built locally
+- mosquitto container image built (previous step)
 - IBM Cloud CLI installed
 - Logged in with `ibmcloud login --sso`
 
@@ -23,7 +23,7 @@ ibmcloud plugin install code-engine container-registry
 
 ## Set environment variables
 
-These variables make the rest of the commands easier to reuse.
+These variables make the rest of the commands easier to reuse. Choose a **unique** `IMAGE_NAME`
 
 ```
 export RESOURCE_GROUP=iot-digital-engineering
@@ -31,6 +31,8 @@ export CR_NAMESPACE=hslu-iot-digital-engineering
 export IMAGE_NAME=mosquitto-custom
 export IMAGE_TAG=1.0
 ```
+
+> Note: These variables are only available in the current session.
 
 ### Setting environment variables on Windows (PowerShell)
 
@@ -45,8 +47,6 @@ $env:API_KEY = "myGeneratedAPIKey"
 ```
 
 You can access them the same way in subsequent commands (e.g., `$env:IMAGE_NAME`) or just use them inline like `${env:IMAGE_NAME}` if needed in PowerShell scripting.
-
-> Note: These variables are only available in the current PowerShell session.
 
 ## Select IBM Cloud context
 
@@ -169,8 +169,6 @@ ibmcloud ce app create --name mosquitto-$env:USERNAME `
   --memory 0.5G
 ```
 
-> Replace `$env:USERNAME` with your actual username if not set as an environment variable.
-
 This will start your mosquitto MQTT broker on IBM Code Engine with your custom configuration, ACLs, and password protection.
 
 ## Troubleshooting
@@ -185,7 +183,7 @@ ibmcloud ce project select -n iot-digital-engineering --kubecfg
 
 Now you can do everything you're authorized to :)
 
-### Get Pods
+### Get pods
 
 ```bash
 kubectl get pods
