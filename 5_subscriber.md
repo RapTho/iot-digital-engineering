@@ -35,7 +35,7 @@ The Cloudant database API provides a RESTful interface for interacting with the 
 To create a new document, send a POST request to https://<cloudant-account>.cloudant.com/<database-name>.
 To retrieve a document, send a GET request to https://<cloudant-account>.cloudant.com/<database-name>/<document-id>.
 
-## Basic Authentication
+### Basic Authentication
 
 To authenticate with the Cloudant database, use basic authentication. You can pass the username and password in the Authorization header of the HTTP request.
 
@@ -43,7 +43,7 @@ To authenticate with the Cloudant database, use basic authentication. You can pa
 
 Libraries like `requests` have ways of doing the base64 encoding for you.
 
-## Example Code
+### Example Code
 
 Here is an example of how you can use the paho-mqtt library to connect to the mosquitto broker and subscribe to a topic. More documentation is available [here](https://eclipse.dev/paho/files/paho.mqtt.python/html/client.html)
 
@@ -99,8 +99,6 @@ headers = {"Content-Type": "application/json"}
 data = {"key": "value"}
 response = requests.post(url, auth=auth, headers=headers, json=data)
 ```
-
-## Environment variables
 
 Load environment variables from a .env file using the python-dotenv library. For example:
 
