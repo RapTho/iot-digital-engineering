@@ -25,9 +25,9 @@ mosquitto
 ├── mosquitto.conf
 ```
 
-## Containerfile explained
+> All the files are provided below
 
-Check out the `Containerfile`
+## Containerfile explained
 
 ```Dockerfile
 FROM eclipse-mosquitto:latest
@@ -43,7 +43,7 @@ RUN chown -R mosquitto:mosquitto ${WORKDIR}
 USER mosquitto
 
 EXPOSE 1883
-EXPOSE 8000
+EXPOSE 8083
 
 CMD ["/usr/sbin/mosquitto", "-c", "/home/mosquitto/config/mosquitto.conf"]
 ```
@@ -51,20 +51,19 @@ CMD ["/usr/sbin/mosquitto", "-c", "/home/mosquitto/config/mosquitto.conf"]
 ### Key instructions
 
 - `FROM eclipse-mosquitto:latest`: Uses the official mosquitto base image.
+- `ARG`: Sets a variable that is scoped to the build (not accessible during container runtime)
 - `WORKDIR`: Sets the working directory inside the container.
 - `RUN mkdir ...`: Creates folders to organize your configs, ACLs, and passwords.
 - `USER mosquitto`: Ensures the broker runs as a non-root user.
-- `EXPOSE`: Declares which ports are used (1883 for MQTT, 8000 for WebSocket).
+- `EXPOSE`: Declares which ports are used (1883 for MQTT, 8083 for WebSocket).
 - `CMD`: Specifies the command that runs when the container starts, pointing to your custom configuration file.
 
-The [mosquitto.conf](./files/mosquitto.conf) configures how the broker works
+The [mosquitto.conf](./files/mosquitto.conf) configures how the broker works. More mosquitto configuration details be found [here](https://mosquitto.org/man/mosquitto-conf-5.html)
 
 ### Step 1: Configure access and credentials
 
-- Edit `acl.txt` to define topic access controls.
-- Use `generatePasswordFile.py` to generate a `passwords.txt` file for authentication.
-
-Create the missing [Python script](./files/generatePasswords.py) and name it `generatePasswordFile.py`. Feel free to modify the users_and_passwords object to your liking.
+- Edit [acl.txt](./files/acl.txt) to define topic access controls.
+- Use [generatePasswordFile.py](./files/generatePasswords.py) to generate a `passwords.txt` file for authentication. Feel free to modify the users_and_passwords object to your liking.
 
 Run the script:
 
@@ -72,7 +71,7 @@ Run the script:
 python generatePasswordFile.py
 ```
 
-After running the script, your folder structure should now include `passwords.txt`:
+After running the script, your folder structure should include `passwords.txt`:
 
 ```
 mosquitto
@@ -92,8 +91,10 @@ Use the following command to build your manifest:
 podman build --jobs 2 --platform linux/amd64,linux/arm64 --manifest mosquitto-custom:1.0 --layers=false /path/to/Containerfile
 ```
 
-- `--platform linux/amd64,linux/arm64` ensures the image runs on both standard x86 and ARM-based systems.
-- This is important because **newer MacBooks use Apple Silicon (ARM64)** and may not be compatible with images built only for AMD64.
+- `--jobs 2` runs 2 stages in parallel
+- `--platform linux/amd64,linux/arm64` ensures the image runs on both standard x86 and ARM-based systems. This is important because **newer MacBooks use Apple Silicon (ARM64)**
+- `--manifest` creates the manifest
+- `--layers=false` caches intermediate images during the build process
 
 Replace `/path/to/Containerfile` with the actual path to your `mosquitto` folder.
 
@@ -108,8 +109,9 @@ podman run -d -v ./:/home/mosquitto/passwords:ro \
               -p 1883:1883 -p 8083:8083 --name mosquitto mosquitto-custom:1.0
 ```
 
-- This command mounts the local directory into the container so it can read `passwords.txt`, `acl.txt`, and `mosquitto.conf`.
-- The `-p 1883:1883` flag makes the MQTT broker accessible on your local port 1883.
+- `-d` starts the container in the background. Use `podman ps` to display running containers. Add the `-a` option to also display stopped and crashed containers.
+- The above command mounts the current directory into the container so it can read `passwords.txt`, `acl.txt`, and `mosquitto.conf`.
+- The `-p 1883:1883` and `-p 8083:8083` flag mapps host ports to the container ports where `<hostPort>:<containerPort>`.
 
 ### Running on Windows (PowerShell)
 
