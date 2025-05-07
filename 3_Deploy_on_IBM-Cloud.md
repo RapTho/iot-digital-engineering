@@ -144,7 +144,7 @@ ibmcloud ce app create --name mosquitto-${USER} \
   --mount-secret /home/mosquitto/passwords=passwords-${USER} \
   --mount-configmap /home/mosquitto/config=conf-${USER} \
   --mount-configmap /home/mosquitto/acl=acl-${USER} \
-  --port 1883 \
+  --port 8083 \
   --min-scale 1 \
   --max-scale 1 \
   --cpu 0.25 \
@@ -162,7 +162,7 @@ ibmcloud ce app create --name mosquitto-$env:USERNAME `
   --mount-secret /home/mosquitto/passwords=passwords-$env:USERNAME `
   --mount-configmap /home/mosquitto/config=conf-$env:USERNAME `
   --mount-configmap /home/mosquitto/acl=acl-$env:USERNAME `
-  --port 1883 `
+  --port 8083 `
   --min-scale 1 `
   --max-scale 1 `
   --cpu 0.25 `
