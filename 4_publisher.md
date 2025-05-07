@@ -68,6 +68,17 @@ message = {"id": 1, "message": "Hello, world!"}
 jsonschema.validate(message, schema)
 ```
 
+Write logs to standard output (stdout) as documented [here](https://eclipse.dev/paho/files/paho.mqtt.python/html/client.html#paho.mqtt.client.Client.on_log)
+
+```python
+from datetime import datetime
+
+def on_log(client, userdata, level, buf):
+    print(f"[{datetime.now()}] MQTT Log: {buf}")
+
+client.on_log = on_log
+```
+
 publish a message
 
 ```python
