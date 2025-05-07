@@ -113,3 +113,30 @@ BROKER_URL = os.getenv("BROKER_URL")
 CLOUDANT_ACCOUNT = os.getenv("CLOUDANT_ACCOUNT")
 CLOUDANT_DATABASE = os.getenv("CLOUDANT_DATABASE")
 ```
+
+## Deployment on IBM Code Engine
+
+The container image building and publishing process will be similar to what was documented in the [mosquitto example](./3_Deploy_on_IBM-Cloud.md). The deployment of the container on IBM Code Engine will be slightly different though.
+
+Instead of an `app` we'll deploy a `job` in the `daemon` mode. This job will run forever (until stopped) and not expose any port.
+
+First, you need to create your subscriber specific `configMap` and `secret`
+
+```
+ibmcloud ce configmap create --name subscriber-conf-${USER} --from-literal key1=value1 --from-literal key2=value2
+ibmcloud ce secret create --name subscriber-secret-${USER} --from-literal key1=value1 --from-literal key2=value2
+```
+
+Then create the `job` in `daemon` mode
+
+```
+ibmcloud ce job create --mode daemon --name subscriber-${USER} --image de.icr.io/${CR_NAMESPACE}/${IMAGE_NAME}:${IMAGE_TAG} --registry-secret ibm-container-registry-${USER} --env-from-configmap subscriber-conf-${USER} --env-from-secret subscriber-secret-${USER} --cpu 0.25 --memory 0.5G
+```
+
+Finally, start the job
+
+```
+ibmcloud ce jobrun submit --name subscriber-run-${USER} --job subscriber-${USER}
+```
+
+More documentation can be found [here](https://cloud.ibm.com/docs/codeengine?topic=codeengine-job-daemon)
