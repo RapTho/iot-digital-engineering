@@ -94,7 +94,7 @@ podman build --jobs 2 --platform linux/amd64,linux/arm64 --manifest mosquitto-cu
 - `--jobs 2` runs 2 stages in parallel
 - `--platform linux/amd64,linux/arm64` ensures the image runs on both standard x86 and ARM-based systems. This is important because **newer MacBooks use Apple Silicon (ARM64)**
 - `--manifest` creates the manifest
-- `--layers=false` caches intermediate images during the build process
+- `--layers=false` avoids caching intermediate images during the build process
 
 Replace `/path/to/Containerfile` with the actual path to your `mosquitto` folder.
 
