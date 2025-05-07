@@ -2,13 +2,13 @@
 
 Before starting the course, please ensure you have the following tools installed on your machine. This guide provides installation instructions for **both macOS and Windows** platforms.
 
----
-
 ## 1. Podman or Docker
 
-You only need **one** of these container runtimes.
+You only need **one** of these container runtimes. Container runtimes allow you to build, run and publish container images locally.
 
 ### Podman
+
+Podman is a daemonless and rootless alternative to Docker, which enhances its security. Podman is fully compatible with the docker CLI commands and OCI standards.
 
 #### macOS
 
@@ -30,9 +30,9 @@ Download Docker Desktop from: [https://www.docker.com/products/docker-desktop](h
 
 > **Note:** Docker Desktop requires a free Docker account.
 
----
-
 ## 2. `kubectl` (Kubernetes CLI)
+
+To interact with the Kuberentes API, you'll need kubectl.
 
 ### macOS
 
@@ -43,8 +43,6 @@ brew install kubectl
 ### Windows
 
 Download manually from: [https://kubernetes.io/docs/tasks/tools/](https://kubernetes.io/docs/tasks/tools/)
-
----
 
 ## 3. IBM Cloud CLI
 
@@ -59,18 +57,14 @@ ibmcloud version
 Optionally, you can also enable the autocompletion:<br />
 [https://cloud.ibm.com/docs/cli?topic=cli-shell-autocomplete](https://cloud.ibm.com/docs/cli?topic=cli-shell-autocomplete)
 
----
-
 ## 4. OPTIONAL: Bruno (API test client)
 
-Bruno is a lightweight API client, ideal for working with REST APIs.
+Bruno is a lightweight API client, ideal for working with REST APIs. In later chapters you'll interact with the IBM Cloudant Database APIs. Bruno will come in handy to test the APIs before implementing them in your code.
 
 Download the latest release for your OS :  
 [https://www.usebruno.com/downloads](https://www.usebruno.com/downloads)
 
 Install the version appropriate for your system.
-
----
 
 ## 5. Python (version 3.8 or higher)
 
@@ -85,8 +79,6 @@ brew install python
 Download and install from: [https://www.python.org/downloads/windows/](https://www.python.org/downloads/windows/)
 
 > **Note:** During installation, make sure to select **"Add Python to PATH"**.
-
----
 
 ## 6. Installing `mosquitto_passwd`
 
@@ -123,15 +115,13 @@ mosquitto_passwd -h
 
 ## 7. Code editor (VS Code or any other)
 
-We recommend using [Visual Studio Code](https://code.visualstudio.com/) for this course.
+Recommended is using [Visual Studio Code](https://code.visualstudio.com/) for this course but any other editor will also do the job.
 
 ### macOS & Windows
 
 Download from: [https://code.visualstudio.com/Download](https://code.visualstudio.com/Download)
 
 > You can use any other editor you're comfortable with.
-
----
 
 ## Verification checklist
 
