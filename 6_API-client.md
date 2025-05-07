@@ -116,5 +116,5 @@ This request will fetch all documents from your Cloudant database using inherite
 
 ### 6. Code generation
 
-Once you successfully managed to use an API, you can use Bruno to generate code samples in various languages / libraries
+Once you successfully managed to use an API, you can use Bruno to generate code samples in various languages / libraries <br />
 ![bruno_code_genretaion](./files/bruno_code_generation.png)

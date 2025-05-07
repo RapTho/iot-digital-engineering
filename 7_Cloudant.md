@@ -48,7 +48,7 @@ The following API endpoints will be used:
 
 After testing the APIs using Bruno, you can implement them in Python using the requests library. You will need to use the requests library to send HTTP requests to the Cloudant API endpoints.
 
-Bruno can generate code in various programming languages and libraries for you. Once the API works, let Bruno generate the code for you!
+Bruno can generate code in various programming languages and libraries for you. Once the API works, let Bruno generate the code for you!<br />
 ![bruno_code_genretaion](./files/bruno_code_generation.png)
 
 ## Tips and Variations
