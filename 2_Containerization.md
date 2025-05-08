@@ -88,7 +88,7 @@ A **manifest** groups multiple platform-specific container images under one tag,
 Use the following command to build your manifest:
 
 ```
-podman build --jobs 2 --platform linux/amd64,linux/arm64 --manifest mosquitto-custom:1.0 --layers=false /path/to/Containerfile
+podman build --jobs 2 --platform linux/amd64,linux/arm64 --manifest mosquitto-${USER} :1.0 --layers=false /path/to/Containerfile
 ```
 
 - `--jobs 2` runs 2 stages in parallel
@@ -106,7 +106,7 @@ To test your image locally, run:
 podman run -d -v ./:/home/mosquitto/passwords:ro \
               -v ./:/home/mosquitto/acl:ro \
               -v ./:/home/mosquitto/config:ro \
-              -p 1883:1883 -p 8083:8083 --name mosquitto mosquitto-custom:1.0
+              -p 1883:1883 -p 8083:8083 --name mosquitto mosquitto-${USER} :1.0
 ```
 
 - `-d` starts the container in the background. Use `podman ps` to display running containers. Add the `-a` option to also display stopped and crashed containers.
@@ -125,7 +125,7 @@ podman run -d `
   -p 1883:1883 `
   -p 8083:8083 `
   --name mosquitto `
-  mosquitto-custom:1.0
+  mosquitto-${USER} :1.0
 ```
 
 > `${PWD}` is PowerShell's way to get the current directory path.

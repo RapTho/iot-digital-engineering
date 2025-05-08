@@ -28,7 +28,7 @@ These variables make the rest of the commands easier to reuse. Choose a **unique
 ```
 export RESOURCE_GROUP=iot-digital-engineering
 export CR_NAMESPACE=hslu-iot-digital-engineering
-export IMAGE_NAME=mosquitto-custom
+export IMAGE_NAME=mosquitto-${USER}
 export IMAGE_TAG=1.0
 ```
 
@@ -41,7 +41,7 @@ If you're using **Windows with PowerShell**, use the following syntax instead of
 ```powershell
 $env:RESOURCE_GROUP = "iot-digital-engineering"
 $env:CR_NAMESPACE = "hslu-iot-digital-engineering"
-$env:IMAGE_NAME = "mosquitto-custom"
+$env:IMAGE_NAME = "mosquitto-${USER} "
 $env:IMAGE_TAG = "1.0"
 $env:API_KEY = "myGeneratedAPIKey"
 ```
