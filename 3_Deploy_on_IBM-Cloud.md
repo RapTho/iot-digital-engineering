@@ -43,7 +43,6 @@ $env:RESOURCE_GROUP = "iot-digital-engineering"
 $env:CR_NAMESPACE = "hslu-iot-digital-engineering"
 $env:IMAGE_NAME = "mosquitto-${USER} "
 $env:IMAGE_TAG = "1.0"
-$env:API_KEY = "myGeneratedAPIKey"
 ```
 
 You can access them the same way in subsequent commands (e.g., `$env:IMAGE_NAME`) or just use them inline like `${env:IMAGE_NAME}` if needed in PowerShell scripting.
