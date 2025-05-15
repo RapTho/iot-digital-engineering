@@ -21,7 +21,7 @@
 2. Create a new collection (e.g., `Cloudant`).
 3. Add a new request:
    - Method: `GET`
-   - URL: `https://<your-cloudant-hostname>.cloudantnosqldb.appdomain.cloud/<your-database-name>`
+   - URL: `https://<cloudant-host>/<your-database-name>`
 4. Click **Send** and inspect the response in the lower panel.
 
 ### 2. Setting Collection Variables
