@@ -50,7 +50,7 @@ Follow these steps to retrieve the **read-only** service credentials from IBM Cl
 
    ```json
    {
-     "baseUrl": "https://your-cloudant-hostname.cloudantnosqldb.appdomain.cloud",
+     "baseUrl": "https://<cloudant-host>",
      "db": "your-database-name"
    }
    ```
