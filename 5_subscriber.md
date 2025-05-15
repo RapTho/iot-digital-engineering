@@ -93,7 +93,7 @@ Here is an example of how you can use the requests library to send a POST reques
 ```python
 import requests
 
-url = "https://<cloudant-account>.cloudant.com/<database-name>"
+url = "https://<cloudant-host>/<database-name>"
 auth = ("myCloudantUsername", "myCloudantPassword")
 headers = {"Content-Type": "application/json"}
 data = {"key": "value"}
@@ -108,7 +108,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 BROKER_URL = os.getenv("BROKER_URL")
-CLOUDANT_ACCOUNT = os.getenv("CLOUDANT_ACCOUNT")
+CLOUDANT_HOST = os.getenv("CLOUDANT_HOST")
 CLOUDANT_DATABASE = os.getenv("CLOUDANT_DATABASE")
 ```
 
