@@ -55,7 +55,7 @@ topic = "topic1"
 client = mqtt.Client(transport="websockets") # or mqtt.CallbackAPIVersion.VERSION2
 client.tls_set(None, cert_reqs=ssl.CERT_NONE) # if you want to ignore TLS
 client.username_pw_set("myBrokerUsername", "myBrokerPassword")
-client.connect("mosquitto-broker-url", 8083)
+client.connect("mosquitto-broker-url", 443)
 client.subscribe(topic, qos=1) # qos=1 is at least once
 ```
 
